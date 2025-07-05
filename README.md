@@ -35,6 +35,41 @@ A smart contract that allows users to lock their ETH for a fixed period of time.
 
 ### 🔍 2. Check Deposit
 - Call `deposits(address)` with your wallet address.
+
+⏳ 3. Check Lock Time Remaining
+Call getRemainingLockTime(address) with your wallet address.
+
+If output is 0, you can withdraw.
+
+💸 4. Withdraw ETH
+Once lock time is up, call the withdraw() function.
+
+ETH is sent back to your wallet.
+
+🔐 Constructor Parameters (on deploy)
+_interestMultiplier: use 100 for no interest (or 110 for +10%, though not implemented yet)
+
+_lockPeriod: duration in seconds (e.g., 60 for 1 minute, 604800 for 7 days)
+
+📦 Use Case
+This contract can be a base for:
+
+Personal or family savings contracts
+
+DeFi lock-and-release mechanisms
+
+Future integrations with interest-bearing protocols (like Aave or Compound)
+
+Gamified savings or DeFi challenges
+
+🧠 Learning Focus
+Time-based locks with block.timestamp
+
+Safe ETH transfer using .call
+
+Structs and mappings for per-user tracking
+
+Withdraw safety checks
 - You'll see:
   ```json
   {
@@ -42,3 +77,9 @@ A smart contract that allows users to lock their ETH for a fixed period of time.
     timestamp: <unix time>,
     withdrawn: false
   }
+✅ Status
+✅ Successfully compiled
+
+✅ Deployed on zkSync Era testnet
+
+✅ ETH deposit, lock, and withdrawal tested
